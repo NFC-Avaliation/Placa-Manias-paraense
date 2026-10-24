@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manias Paraense - Pagamento Pix</title>
-    <!-- Google Fonts para tipografia elegante -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background-color: #f7f3ee;
-            color: #2b2b2b;
+            background-color: #120707;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(168, 32, 32, 0.25) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(212, 110, 36, 0.15) 0%, transparent 40%);
+            color: #f7f3ee;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -24,35 +26,44 @@
             padding: 20px;
         }
 
-        .container {
+        /* Container Bento Grid com Liquid Glass */
+        .bento-container {
             width: 100%;
-            max-width: 420px;
-            background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(168, 32, 32, 0.15);
+            max-width: 440px;
+            background: rgba(30, 10, 10, 0.45);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 32px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
             overflow: hidden;
-            border: 2px solid #a82020;
-            text-align: center;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
 
-        .header {
-            background: linear-gradient(135deg, #a82020 0%, #7d1515 100%);
-            padding: 30px 20px;
-            color: #ffffff;
+        /* Bloco 1: Header / Logo */
+        .bento-card-header {
+            background: linear-gradient(135deg, rgba(168, 32, 32, 0.8) 0%, rgba(100, 15, 15, 0.8) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 28px 20px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(168, 32, 32, 0.3);
         }
 
         .logo-container {
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 15px auto;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 14px auto;
             border-radius: 50%;
             overflow: hidden;
-            border: 4px solid #f7f3ee;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
             background: #f7f3ee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .logo-container img {
@@ -61,47 +72,55 @@
             object-fit: cover;
         }
 
-        .header h1 {
-            font-size: 1.5rem;
+        .bento-card-header h1 {
+            font-size: 1.35rem;
             font-weight: 700;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            color: #ffffff;
         }
 
-        .header p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            margin-top: 5px;
+        .bento-card-header p {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            margin-top: 4px;
+            color: #f7f3ee;
         }
 
-        .content {
-            padding: 30px 20px;
+        /* Bloco 2: Instruções */
+        .bento-card-body {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 20px;
         }
 
         .instructions {
-            font-size: 0.95rem;
-            color: #444;
+            font-size: 0.9rem;
+            color: #e0d8d0;
             line-height: 1.6;
-            margin-bottom: 25px;
-            background: #fdfaf7;
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid #a82020;
-            text-align: left;
         }
 
+        .instructions strong {
+            color: #ffffff;
+        }
+
+        /* Botão Liquid Glass Pix */
         .pix-btn {
-            background-color: #27ae60;
+            margin-top: 16px;
+            background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);
             color: white;
-            border: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             width: 100%;
             padding: 16px;
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 600;
-            border-radius: 12px;
+            border-radius: 18px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 25px rgba(39, 174, 96, 0.4),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -109,63 +128,66 @@
         }
 
         .pix-btn:active {
-            transform: scale(0.98);
+            transform: scale(0.97);
         }
 
         .pix-btn:hover {
-            background-color: #219653;
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            box-shadow: 0 15px 30px rgba(39, 174, 96, 0.6),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.4);
         }
 
         .toast {
-            margin-top: 15px;
-            font-size: 0.9rem;
-            color: #27ae60;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #2ecc71;
             font-weight: 600;
+            text-align: center;
             display: none;
             animation: fadeIn 0.3s ease-in-out;
         }
 
+        /* Rodapé Grid */
         .footer {
-            padding: 15px;
+            text-align: center;
             font-size: 0.75rem;
-            color: #888;
-            background: #fdfaf7;
-            border-top: 1px solid #eee;
+            color: rgba(255, 255, 255, 0.4);
+            padding: 4px 0;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-5px); }
+            from { opacity: 0; transform: translateY(-4px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Cabeçalho com a Marca -->
-        <div class="header">
+    <div class="bento-container">
+        <!-- Bloco 1: Logo e Título -->
+        <div class="bento-card-header">
             <div class="logo-container">
-                <!-- Substitua o link abaixo pela URL direta da imagem hospedada ou coloque a imagem na mesma pasta no GitHub -->
                 <img src="PHOTO-2026-10-14-18-22-14.jpg" alt="Logo Manias Paraense">
             </div>
             <h1>Manias Paraense</h1>
             <p>Restaurante & Lanchonete</p>
         </div>
 
-        <!-- Corpo da Página -->
-        <div class="content">
+        <!-- Bloco 2: Instruções e Botão Pix -->
+        <div class="bento-card-body">
             <div class="instructions">
                 <strong>💳 Pagamento via Pix:</strong><br>
-                Clique no botão verde abaixo para copiar o código Pix Copia e Cola. Em seguida, abra o aplicativo do seu banco, vá na opção <strong>Pix Copia e Cola</strong>, cole o código e finalize o pagamento.
+                Toque no botão abaixo para copiar o código Pix Copia e Cola. Depois, abra o aplicativo do seu banco, escolha a modalidade <strong>Pix Copia e Cola</strong>, cole e finalize o pagamento.
             </div>
 
-            <!-- Botão de Copiar -->
             <button class="pix-btn" onclick="copiarPix()">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                </svg>
                 Copiar Código Pix
             </button>
 
-            <div id="toast" class="toast">✅ Código Pix copiado com sucesso! Agora é só colar no seu banco.</div>
+            <div id="toast" class="toast">✅ Código copiado! Agora é só colar no app do banco.</div>
         </div>
 
         <!-- Rodapé -->
@@ -178,12 +200,10 @@
         function copiarPix() {
             const codigoPix = "00020126360014br.gov.bcb.pix0114+55919821763815204000053039865802BR5922GABRIELE PINTO DA GAMA6014JARAGUA DO SUL62580520SAN2026101400175672350300017br.gov.bcb.brcode01051.0.0630412EE";
             
-            // Copia utilizando a API moderna do navegador
             navigator.clipboard.writeText(codigoPix).then(() => {
                 const toast = document.getElementById('toast');
                 toast.style.display = 'block';
                 
-                // Esconde a mensagem após 4 segundos
                 setTimeout(() => {
                     toast.style.display = 'none';
                 }, 4000);
