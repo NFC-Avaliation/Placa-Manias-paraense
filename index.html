@@ -106,7 +106,7 @@
             color: #ffffff;
         }
 
-        /* Botão Liquid Glass Pix com o ícone integrado com tamanho fixo */
+        /* Botão Liquid Glass Pix apenas com texto */
         .pix-btn {
             margin-top: 16px;
             background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);
@@ -121,10 +121,7 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 10px 25px rgba(39, 174, 96, 0.4),
                         inset 0 1px 0 rgba(255, 255, 255, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            text-align: center;
         }
 
         .pix-btn:active {
@@ -180,11 +177,8 @@
                 Toque no botão abaixo para copiar o código Pix Copia e Cola. Depois, abra o aplicativo do seu banco, escolha a modalidade <strong>Pix Copia e Cola</strong>, cole e finalize o pagamento.
             </div>
 
-            <!-- Botão com o SVG ajustado com largura e altura fixas -->
+            <!-- Botão limpo apenas com texto -->
             <button class="pix-btn" onclick="copiarPix()">
-                <svg width="22" height="22" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF">
-                    <path d="M768 768H384a85.33 85.33 0 01-85.33-85.33V384a85.33 85.33 0 0185.33-85.33h384A85.33 85.33 0 01853.33 384v384a85.33 85.33 0 01-85.33 85.33zm-384-512a128 128 0 00-128 128v384a128 128 0 00128 128h384a128 128 0 00128-128V384a128 128 0 00-128-128H384zM256 640H170.67A85.33 85.33 0 0185.33 554.67V170.67A85.33 85.33 0 01170.67 85.33h384a85.33 85.33 0 0185.34 85.34V256h-42.67V170.67a42.67 42.67 0 00-42.67-42.67h-384a42.67 42.67 0 00-42.67 42.67v384a42.67 42.67 0 0042.67 42.67H256V640z"/>
-                </svg>
                 Copiar Código Pix
             </button>
 
